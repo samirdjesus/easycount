@@ -1,7 +1,7 @@
 import express, { json } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import path, { join } from 'path'
+import path from 'path'
 
 // Conexión base de datos
 const mongoose = require('mongoose');
@@ -21,6 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(morgan('tiny'));
+app.use(cors())
 
 
 

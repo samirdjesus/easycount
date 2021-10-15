@@ -50,6 +50,19 @@ router.delete('/nota/:id', async(req, res) => {
     }
     })
 
+// Get con todos los documentos
+router.get('/nota', async(req, res) => {
+    try {
+    const notaDb = await Nota.find();
+    res.json(notaDb);
+    } catch (error) {
+    return res.status(400).json({
+    mensaje: 'Ocurrio un error',
+    error
+    })
+    }
+    });
+
 // Put actualizar una nota
 router.put('/nota/:id', async(req, res) => {
     const _id = req.params.id;
